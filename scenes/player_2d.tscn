@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6agvc4l5m4sj"]
+
+[ext_resource type="Texture2D" uid="uid://de8xurx1vg3ej" path="res://sprites/devious-small1.png" id="1_t4y8b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juaga"]
+size = Vector2(99, 100)
+
+[node name="Player2D" type="Node2D"]
+
+[node name="PlayerCharBod" type="CharacterBody2D" parent="."]
+
+[node name="PlayerCol" type="CollisionShape2D" parent="PlayerCharBod"]
+shape = SubResource("RectangleShape2D_juaga")
+
+[node name="CollideArea" type="Area2D" parent="PlayerCharBod/PlayerCol"]
+
+[node name="CollideAreaCollider" type="CollisionShape2D" parent="PlayerCharBod/PlayerCol/CollideArea"]
+shape = SubResource("RectangleShape2D_juaga")
+
+[node name="PlayerSprite" type="Sprite2D" parent="PlayerCharBod/PlayerCol/CollideArea"]
+texture = ExtResource("1_t4y8b")
+
+[node name="PlayerAnimation" type="AnimationPlayer" parent="PlayerCharBod/PlayerCol/CollideArea/PlayerSprite"]

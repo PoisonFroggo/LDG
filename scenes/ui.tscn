@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cxutn4inpxshu"]
+
+[node name="UI" type="Node2D"]
+
+[node name="SpawnBtn" type="Button" parent="."]
+offset_right = 210.0
+offset_bottom = 57.0
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_left = 1.0
+offset_top = 92.0
+offset_right = 181.0
+offset_bottom = 377.0

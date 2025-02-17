@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8f0wr3quom8f"]
+
+[ext_resource type="PackedScene" uid="uid://c3dwd5scqslt1" path="res://scenes/bee_spawner.tscn" id="1_4gpj7"]
+[ext_resource type="PackedScene" uid="uid://cxutn4inpxshu" path="res://scenes/ui.tscn" id="2_igny0"]
+[ext_resource type="PackedScene" uid="uid://cuvs48k3vfi47" path="res://scenes/flower1.tscn" id="2_sebtg"]
+[ext_resource type="PackedScene" uid="uid://huc7ekit1pq2" path="res://scenes/biffy_jones.tscn" id="3_w4gpk"]
+[ext_resource type="Script" path="res://scripts/AddBee2ui.cs" id="5_84h0o"]
+[ext_resource type="PackedScene" uid="uid://c6agvc4l5m4sj" path="res://scenes/player_2d.tscn" id="6_sc1rb"]
+
+[node name="MasterMap" type="Node2D"]
+
+[node name="BeeSpawner" parent="." node_paths=PackedStringArray("Flowers") instance=ExtResource("1_4gpj7")]
+Flowers = NodePath("../Flowers")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" parent="Camera2D" instance=ExtResource("2_igny0")]
+position = Vector2(-575, -324)
+
+[node name="Flowers" type="Node2D" parent="."]
+
+[node name="Flower1" parent="Flowers" instance=ExtResource("2_sebtg")]
+position = Vector2(-286, 136)
+
+[node name="Flower2" parent="Flowers" instance=ExtResource("2_sebtg")]
+position = Vector2(-343, -217)
+
+[node name="Flower3" parent="Flowers" instance=ExtResource("2_sebtg")]
+position = Vector2(287, -111)
+
+[node name="Flower4" parent="Flowers" instance=ExtResource("2_sebtg")]
+position = Vector2(312, 197)
+
+[node name="Biffy-Jones" parent="." instance=ExtResource("3_w4gpk")]
+position = Vector2(-473, 197)
+
+[node name="AddBee2UI" type="Node" parent="."]
+script = ExtResource("5_84h0o")
+
+[node name="Player2D" parent="." instance=ExtResource("6_sc1rb")]
+position = Vector2(310, 71)

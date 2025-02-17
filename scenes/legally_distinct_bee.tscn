@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://ltnsv5e1njeg"]
+
+[ext_resource type="Script" path="res://scripts/LegallyDistinctBee.cs" id="1_rhav2"]
+[ext_resource type="Texture2D" uid="uid://gpt3gsbmg1g7" path="res://sprites/legally-distinct-bee.png" id="1_s2ot8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bung"]
+size = Vector2(126, 87)
+
+[sub_resource type="Animation" id="Animation_jydt6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.261799]
+}
+
+[sub_resource type="Animation" id="Animation_8xfx5"]
+resource_name = "walk1"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.266667, 0.366667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.261799, -0.261799, 0.261799, 0.261799]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hflqn"]
+_data = {
+"RESET": SubResource("Animation_jydt6"),
+"walk1": SubResource("Animation_8xfx5")
+}
+
+[node name="LegallyDistinctBee" type="Node2D" node_paths=PackedStringArray("This", "CharBod", "AnimPlayer", "PollinationTimer")]
+script = ExtResource("1_rhav2")
+MoveSpeed = 100.0
+This = NodePath(".")
+CharBod = NodePath("LegallyDistinctBee_charbod")
+AnimPlayer = NodePath("LegallyDistinctBee_charbod/LegallyDistinctBee_col/CollideArea/LegallyDistinctBee_sprite/AnimationPlayer")
+PollinationTimer = NodePath("PollinationTimer")
+
+[node name="LegallyDistinctBee_charbod" type="CharacterBody2D" parent="."]
+collision_layer = 0
+
+[node name="LegallyDistinctBee_col" type="CollisionShape2D" parent="LegallyDistinctBee_charbod"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_7bung")
+
+[node name="CollideArea" type="Area2D" parent="LegallyDistinctBee_charbod/LegallyDistinctBee_col"]
+position = Vector2(1, -0.5)
+
+[node name="CollideArea_col" type="CollisionShape2D" parent="LegallyDistinctBee_charbod/LegallyDistinctBee_col/CollideArea"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_7bung")
+
+[node name="LegallyDistinctBee_sprite" type="Sprite2D" parent="LegallyDistinctBee_charbod/LegallyDistinctBee_col/CollideArea"]
+rotation = -0.261799
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("1_s2ot8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LegallyDistinctBee_charbod/LegallyDistinctBee_col/CollideArea/LegallyDistinctBee_sprite"]
+libraries = {
+"": SubResource("AnimationLibrary_hflqn")
+}
+
+[node name="PollinationTimer" type="Timer" parent="."]
+wait_time = 2.0

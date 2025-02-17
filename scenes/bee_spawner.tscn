@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3dwd5scqslt1"]
+
+[ext_resource type="Texture2D" uid="uid://dgdwpt81830wb" path="res://sprites/hiveplant.png" id="1_85o2w"]
+[ext_resource type="Script" path="res://scripts/BeeSpawn.cs" id="1_gevnf"]
+[ext_resource type="PackedScene" uid="uid://ltnsv5e1njeg" path="res://scenes/legally_distinct_bee.tscn" id="2_7ww7d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtj7r"]
+size = Vector2(270, 322)
+
+[node name="BeeSpawner" type="Node2D" node_paths=PackedStringArray("SpawnArea")]
+script = ExtResource("1_gevnf")
+BeeScene = ExtResource("2_7ww7d")
+SpawnArea = NodePath("BeeSpawner_staticbody")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_85o2w")
+
+[node name="BeeSpawner_staticbody" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="BeeSpawner_col" type="CollisionShape2D" parent="BeeSpawner_staticbody"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_vtj7r")
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="Timers"]
+autostart = true
+
+[connection signal="timeout" from="Timers/SpawnTimer" to="." method="_on_timer_timeout"]

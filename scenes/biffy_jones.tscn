@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://huc7ekit1pq2"]
+
+[ext_resource type="Script" path="res://scripts/BiffyJones.cs" id="1_8io6a"]
+[ext_resource type="Texture2D" uid="uid://c6q6ggf87jd5p" path="res://sprites/biffy-jones.png" id="1_gua8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jn828"]
+size = Vector2(144, 144)
+
+[node name="Biffy-Jones" type="Node2D"]
+script = ExtResource("1_8io6a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("1_gua8c")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_jn828")

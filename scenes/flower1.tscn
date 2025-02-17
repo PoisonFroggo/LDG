@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuvs48k3vfi47"]
+
+[ext_resource type="Texture2D" uid="uid://d37srucw7tjgs" path="res://sprites/flower-trustme.png" id="1_g7pv0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3bre"]
+size = Vector2(161, 81)
+
+[node name="Flower" type="Node2D"]
+
+[node name="Flower_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_g7pv0")
+
+[node name="Flower_staticbody" type="StaticBody2D" parent="."]
+collision_layer = 0
+
+[node name="Flower_col" type="CollisionShape2D" parent="Flower_staticbody"]
+position = Vector2(4.5, 9.5)
+shape = SubResource("RectangleShape2D_u3bre")

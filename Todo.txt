@@ -1,0 +1,1 @@
+Works like a clock. Every 60 bees a Biffy spawns and eats 60 bees
