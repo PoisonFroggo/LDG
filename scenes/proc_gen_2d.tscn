@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk0gtardxvpj8"]
+
+[ext_resource type="Script" path="res://scenes/ProcGen2d.cs" id="1_qaer5"]
+[ext_resource type="TileSet" uid="uid://dpjmyafjchjgv" path="res://data/proc_gen_2d.tres" id="1_v1lsv"]
+
+[node name="proc_gen_2D" type="Node2D"]
+script = ExtResource("1_qaer5")
+
+[node name="proc_gen_tile" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_v1lsv")

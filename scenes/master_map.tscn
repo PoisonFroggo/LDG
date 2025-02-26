@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8f0wr3quom8f"]
+[gd_scene load_steps=6 format=3 uid="uid://c8f0wr3quom8f"]
 
 [ext_resource type="PackedScene" uid="uid://c3dwd5scqslt1" path="res://scenes/bee_spawner.tscn" id="1_4gpj7"]
-[ext_resource type="PackedScene" uid="uid://cxutn4inpxshu" path="res://scenes/ui.tscn" id="2_igny0"]
 [ext_resource type="PackedScene" uid="uid://cuvs48k3vfi47" path="res://scenes/flower1.tscn" id="2_sebtg"]
 [ext_resource type="PackedScene" uid="uid://huc7ekit1pq2" path="res://scenes/biffy_jones.tscn" id="3_w4gpk"]
 [ext_resource type="Script" path="res://scripts/AddBee2ui.cs" id="5_84h0o"]
@@ -11,11 +10,6 @@
 
 [node name="BeeSpawner" parent="." node_paths=PackedStringArray("Flowers") instance=ExtResource("1_4gpj7")]
 Flowers = NodePath("../Flowers")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="UI" parent="Camera2D" instance=ExtResource("2_igny0")]
-position = Vector2(-575, -324)
 
 [node name="Flowers" type="Node2D" parent="."]
 

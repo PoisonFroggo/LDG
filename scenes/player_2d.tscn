@@ -21,3 +21,5 @@ shape = SubResource("RectangleShape2D_juaga")
 texture = ExtResource("1_t4y8b")
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="PlayerCharBod/PlayerCol/CollideArea/PlayerSprite"]
+
+[node name="PlayerCam" type="Camera2D" parent="PlayerCharBod"]
